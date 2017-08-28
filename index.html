@@ -1,6 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
+		<script>
+			
+		var mytable = "<table cellpadding=\"0\" cellspacing=\"0\"><tbody><tr>";
+
+		for (var i = 1; i < 341; i++) {
+    			if (i % 20 == 1 && i != 1) {
+        		mytable += "</tr><tr>";
+    			}
+    			mytable += "<td></td>";
+		}
+
+mytable += "</tr></tbody></table>";
+
+</script>
+
+<style>
+
+td {width: 25px; height: 25px; background-color: green; border-style: solid; border-width: 1px;}
+div.container { width: 500px; }
+</style>
+		
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,8 +38,8 @@
 	<body>
 		
 		<div class="container">
-  			<h1>My First Bootstrap Page</h1>
-  			<p>This is some text.</p> 
+  			<h1>My First Page</h1>
+  			<p><script>document.write(mytable);</script></p> 
 		</div>
 		
 	</body>
