@@ -1,46 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<script>
-			
-		var mytable = "<table cellpadding=\"0\" cellspacing=\"0\"><tbody><tr>";
-
-		for (var i = 1; i < 341; i++) {
-    			if (i % 20 == 1 && i != 1) {
-        		mytable += "</tr><tr>";
-    			}
-    			mytable += "<td>" + Math.floor(Math.random() * 4) + "</td>";
-		}
-
-mytable += "</tr></tbody></table>";
-
-</script>
-
 <style>
 
-td {width: 25px; height: 25px; background-color: green; border-style: solid; border-width: 1px;}
-div.container { width: 500px; }
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
 </style>
-		
-		<meta name="apple-mobile-web-app-capable" content="yes">
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<center><h1>Group Chat Fantasy League</h1>
+<h3>2017 - 2018 Season</h3>
+<image width="50px" height="100px" src="https://i.pinimg.com/236x/50/58/c4/5058c4f3aab6aa3cad67c50ceaeb0bca--nba-finals-game-project-.jpg"></image>
+<h5><u>Regular Season</u></h5></center>
+<p>1.	Each person will draft their team, and players selected will not change throughout the entire season. (set-and-forget)</p>
 
-<!-- Latest compiled and minified CSS -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<p>2.	The winning order will determine amount of money added to the playoff bracket buy-in.</p>
 
-<!-- jQuery library -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<ul>
+  <li>First Place – Free</li>
+  <li>Second Place - $1</li>
+  <li>Third Place - $2</li>
+  <li>Fourth Place - $3</li>
+  <li>Fifth Place – $4</li>
+  <li>Sixth Place - $5</li>
+</ul>
 
-<!-- Latest compiled JavaScript -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</head>
-	<body>
-		
-		<div class="container">
-  			<h1>My First Page</h1>
-  			<p><script>document.write(mytable);</script></p> 
-		</div>
-		
-	</body>
+<p><i>** Tie breakers will be settled in a GLHF Best-Of-7 Rock paper scissors administered in the presence of another league member.</i></p>
+
+<p>3.	Each year, the amount required for each place will by the original amount multiplied by the number of years of ongoing. </p>
+
+<ul>
+  <li>Example: 5th year</li>
+  <ul>Sixth Place - $5 * 5 years = $25</ul>
+  <li>(first place will <b><u>always</u></b> be free)</li>
+</ul> 
+
+<center><h5><u>Post Season</u></h5></center>
+
+<p>1.	There will be incremental earnings for the winners </p>
+
+<ul>
+	<li>First place winnings – 50% (rounded up to the nearest dollar)</li>
+    <li>Second place winnings – 30% (rounded up to the nearest dollar)</li>
+    <li>Third place winnings – 20% (rounded up to the nearest dollar)</li>
+    <li>Fourth place winnings – nothing</li>
+    <li>Fifth place winnings – nothing</li>
+    <li>Sixth place winnings – nothing</li>
+</ul>
+
+<p>2.	The order of winning will determine the following years draft order.</p>
+
+<ul>
+	<li>Sixth place – number 1 pick in the draft</li>
+    <li>Fifth place – number 2 pick in the draft</li>
+    <li>Fourth place – number 3 pick in the draft</li>
+    <li>Third place – number 4 pick in the draft</li>
+    <li>Second place – number 5 pick in the draft</li>
+    <li>First place – number 6 pick in the draft</li>
+</ul>
+
+<p><i>** Tie breakers will be settled in a GLHF Best-Of-7 Rock paper scissors administered in the presence of another league member</i></p>
+</body>
 </html>
