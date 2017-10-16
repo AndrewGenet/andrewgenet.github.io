@@ -1,39 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-<style>
-html, body
+<html><head>
+    <style>
+    html, body
 {
   height: 100%;
   margin: 0;
   padding: 0;
 }
-	
-.box {
-  width: 100%;
-  height: 100%;
-  background: red;
-  margin-top: 0px;
-  margin-left: auto;
-  margin-right: auto;
-  -webkit-transition: background-color 30s ease-out;
-  -moz-transition: background-color 30s ease-out;
-  -o-transition: background-color 30s ease-out;
-  transition: background-color 30s ease-out;
+        .container {
+    background-color: red;
+    height:100%;
+    width: 100%;
+    margin-top: 0px;
+    margin-left: auto;
+    margin-right: auto;
+    -webkit-transition: background-color 30s ease-in-out;
+    -moz-transition: background-color 30s ease-in-out;
+    -o-transition: background-color 30s ease-in-out;
+    -khtml-transition: background-color 30s ease-in-out;
+    transition: background-color 30s ease-in-out;
 }
-
-.box:hover {
-  background-color: yellow;
-  cursor: pointer;
-}
-
-</style>
-<script>
-	var CSS_COLOR_NAMES = ["AliceBlue","AntiqueWhite","Aqua","Aquamarine","Azure","Beige","Bisque","Black","BlanchedAlmond","Blue","BlueViolet","Brown","BurlyWood","CadetBlue","Chartreuse","Chocolate","Coral","CornflowerBlue","Cornsilk","Crimson","Cyan","DarkBlue","DarkCyan","DarkGoldenRod","DarkGray","DarkGrey","DarkGreen","DarkKhaki","DarkMagenta","DarkOliveGreen","Darkorange","DarkOrchid","DarkRed","DarkSalmon","DarkSeaGreen","DarkSlateBlue","DarkSlateGray","DarkSlateGrey","DarkTurquoise","DarkViolet","DeepPink","DeepSkyBlue","DimGray","DimGrey","DodgerBlue","FireBrick","FloralWhite","ForestGreen","Fuchsia","Gainsboro","GhostWhite","Gold","GoldenRod","Gray","Grey","Green","GreenYellow","HoneyDew","HotPink","IndianRed","Indigo","Ivory","Khaki","Lavender","LavenderBlush","LawnGreen","LemonChiffon","LightBlue","LightCoral","LightCyan","LightGoldenRodYellow","LightGray","LightGrey","LightGreen","LightPink","LightSalmon","LightSeaGreen","LightSkyBlue","LightSlateGray","LightSlateGrey","LightSteelBlue","LightYellow","Lime","LimeGreen","Linen","Magenta","Maroon","MediumAquaMarine","MediumBlue","MediumOrchid","MediumPurple","MediumSeaGreen","MediumSlateBlue","MediumSpringGreen","MediumTurquoise","MediumVioletRed","MidnightBlue","MintCream","MistyRose","Moccasin","NavajoWhite","Navy","OldLace","Olive","OliveDrab","Orange","OrangeRed","Orchid","PaleGoldenRod","PaleGreen","PaleTurquoise","PaleVioletRed","PapayaWhip","PeachPuff","Peru","Pink","Plum","PowderBlue","Purple","Red","RosyBrown","RoyalBlue","SaddleBrown","Salmon","SandyBrown","SeaGreen","SeaShell","Sienna","Silver","SkyBlue","SlateBlue","SlateGray","SlateGrey","Snow","SpringGreen","SteelBlue","Tan","Teal","Thistle","Tomato","Turquoise","Violet","Wheat","White","WhiteSmoke","Yellow","YellowGreen"];
-</script>
-</head>
+    </style>
+    </head>
 <body>
-<div class="box"></div>
-	
-</body>
-</html>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+<div class="container" style="background-color: black;"></div>
+    <script type="text/javascript">
+        jQuery(function ($) {
+    function changeColor(selector, colors, time) {
+        /* Params:
+         * selector: string,
+         * colors: array of color strings,
+         * every: integer (in mili-seconds)
+         */
+         
+        var curCol = 0,
+            timer = setInterval(function () {
+                if (curCol === colors.length) curCol = 0;
+                $(selector).css("background-color", colors[curCol]);
+                curCol++;
+            }, time);
+    }
+    $(window).load(function () {
+        changeColor(".container", ["green", "yellow", "blue", "red"], 30000);
+    });
+});
+    </script>
+
+</body></html>
