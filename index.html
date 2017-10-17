@@ -26,7 +26,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <div class="container" style="background-color: black;"></div>
     <script type="text/javascript">
-        jQuery(function ($) {
+jQuery(function ($) {
+    var curCol = 0
     function changeColor(selector, colors, time) {
         /* Params:
          * selector: string,
@@ -34,12 +35,13 @@
          * every: integer (in mili-seconds)
          */
          
-        var curCol = 0,
-            timer = setInterval(function () {
-                if (curCol === colors.length) curCol = 0;
-                $(selector).css("background-color", colors[curCol]);
-                curCol++;
+        
+        var timer = setInterval(function () {
+             changeColor(".container", ["red", "orange", "yellow", "green", "teal", "blue", "purple"], 5000);   
             }, time);
+        if (curCol === colors.length) curCol = 0;
+        $(selector).css("background-color", colors[curCol]);
+        curCol++;
     }
     $(window).load(function () {
         changeColor(".container", ["red", "orange", "yellow", "green", "teal", "blue", "purple"], 5000);
