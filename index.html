@@ -117,7 +117,7 @@ label {
 
     </select>
     <div class="controls">
-      <button id="play" type="submit">Play</button>
+      <button id="play" type="submit">Play Custom Text</button><button id="start" onclick="onStart()">Start Automated Sequence</button>
     </div>
     </form>
 
@@ -201,6 +201,26 @@ inputForm.onsubmit = function(event) {
 
   inputTxt.blur();
 }
+
+function onStart() {
+		inputTxt.value = "Soon, you will be able to select a map, and i will do my best, to notify you, with proper timings.";
+		setTimeout(myTimeout1, 8000)
+		setTimeout(myTimeout2, 12000)
+		setTimeout(myTimeout3, 16000)
+	}
+
+	function myTimeout1() {
+		inputTxt.value = "this is when i'll tell you the camps are ready.";
+		speak();
+	}
+	function myTimeout2() {
+		inputTxt.value = "I'm also going to notify you, when the boss is available";
+		speak();
+	}
+	function myTimeout3() {
+		inputTxt.value = "and there's one last thing. Don't forget the objective!";
+		speak();
+	}
 
 pitch.onchange = function() {
   pitchValue.textContent = pitch.value;
