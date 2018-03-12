@@ -99,6 +99,11 @@ label {
     <form>
     <input type="text" class="txt" value="Get ready, the boss will be available in 30 seconds.">
     <div>
+      <label for="volume">Volume</label><input type="range" min="0" max="1" value="1" step="0.1" id="volume">
+      <div class="volume-value">1</div>
+      <div class="clearfix"></div>
+    </div>
+    <div>
       <label for="rate">Rate</label><input type="range" min="0.5" max="2" value="1" step="0.1" id="rate">
       <div class="rate-value">1</div>
       <div class="clearfix"></div>
@@ -125,6 +130,8 @@ var inputForm = document.querySelector('form');
 var inputTxt = document.querySelector('.txt');
 var voiceSelect = document.querySelector('select');
 
+var volume = document.querySelector('#volume');
+var volumeValue = document.querySelector('.volume-value');
 var pitch = document.querySelector('#pitch');
 var pitchValue = document.querySelector('.pitch-value');
 var rate = document.querySelector('#rate');
@@ -182,6 +189,7 @@ function speak(){
     }
     utterThis.pitch = pitch.value;
     utterThis.rate = rate.value;
+    utterThis.volume = volume.value;
     synth.speak(utterThis);
   }
 }
@@ -200,6 +208,10 @@ pitch.onchange = function() {
 
 rate.onchange = function() {
   rateValue.textContent = rate.value;
+}
+
+volume.onchange = function () {
+  volumeValue.textContent = volume.value;
 }
 
 voiceSelect.onchange = function(){
