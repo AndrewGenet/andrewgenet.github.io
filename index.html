@@ -1,52 +1,46 @@
 <html><head>
     <meta name="viewport" content="minimal-ui, width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-    <style>
-    html, body
-{
-  height: 100%;
-  margin: 0;
-  padding: 0;
-}
-        .container {
-    background-color: red;
-    height:100%;
-    width: 100%;
-    margin-top: 0px;
-    margin-left: auto;
-    margin-right: auto;
-    -webkit-transition: background-color 5s ease-in-out;
-    -moz-transition: background-color 5s ease-in-out;
-    -o-transition: background-color 5s ease-in-out;
-    -khtml-transition: background-color 5s ease-in-out;
-    transition: background-color 5s ease-in-out;
-}
-    </style>
+    
     </head>
 <body>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-<div class="container" style="background-color: black;"></div>
-    <script type="text/javascript">
-jQuery(function ($) {
-    var curCol = 0
-    function changeColor(selector, colors, time) {
-        /* Params:
-         * selector: string,
-         * colors: array of color strings,
-         * every: integer (in mili-seconds)
-         */
-         
-        
-        var timer = setInterval(function () {
-             changeColor(".container", ["red", "orange", "yellow", "green", "teal", "blue", "purple"], 5000);   
-            }, time);
-        if (curCol === colors.length) curCol = 0;
-        $(selector).css("background-color", colors[curCol]);
-        curCol++;
-    }
-    $(window).load(function () {
-        changeColor(".container", ["red", "orange", "yellow", "green", "teal", "blue", "purple"], 5000);
-    });
-});
-    </script>
+    <button onclick="myFunction()">Click me to speak at you!</button>
 
+    <script>
+
+function saySomething(whatToSay){
+  const synth = window.speechSynthesis;
+  // enter your voice here, because voices list loads asynchronously.. check the console.log below.
+  getVoice("Google US English", synth)  
+    .then(voice => {
+      var utterThis = new SpeechSynthesisUtterance(whatToSay);
+      utterThis.voice = voice;
+      synth.speak(utterThis);
+    })
+    .catch(error => console.log("error: ", error));
+}
+
+function getVoice(voiceName, synth){
+  return new Promise((resolve, reject) =>{
+    synth.onvoiceschanged = function(){
+      const voices = synth.getVoices();
+
+      console.log("see all available languages and voices on your system: ", voices);
+
+      for(let i = 0; i < voices.length ; i++) {
+          if(voices[i].name == voiceName) {
+            resolve(voices[i]);
+          }
+        }
+    }
+    synth.getVoices();
+  });
+}
+
+function myFunction() {
+	saySomething("I will help you remember map timings");
+}
+
+</script>
+
+    
 </body></html>
